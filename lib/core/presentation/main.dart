@@ -1,9 +1,11 @@
-import 'package:blue_meth_registery/core/presentation/screens/HomeScreen.dart';
+import 'package:blue_meth_registery/app_router.dart';
+import 'package:blue_meth_registery/core/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -11,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+      //onGenerateRoute expects a function reference, not the result of a function.
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }

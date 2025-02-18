@@ -1,4 +1,5 @@
-import 'package:blue_meth_registery/core/presentation/components/CharacterCard.dart';
+import 'package:blue_meth_registery/core/presentation/components/character_card.dart';
+import 'package:blue_meth_registery/core/presentation/screens/character_screen.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class Homescreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: Colors.transparent,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -31,16 +33,7 @@ class Homescreen extends StatelessWidget {
           ],
         ),
       ),
-      body: GridView.count(
-        childAspectRatio:0.6 ,
-        crossAxisCount: 2,
-        scrollDirection: Axis.vertical,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 10,
-        children: List.generate(10, (index) {
-          return CharacterCard();
-        }),
-      ),
+      body: CharactersScreen()
     );
   }
 }

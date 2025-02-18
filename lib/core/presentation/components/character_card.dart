@@ -1,7 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:blue_meth_registery/Constants.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/images.dart';
 
 class CharacterCard extends StatelessWidget {
   const CharacterCard({super.key});
