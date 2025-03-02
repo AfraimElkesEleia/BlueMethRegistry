@@ -1,6 +1,6 @@
 class Character {
   final int charId;
-  final bool isAlive;
+  final String status;
   final String name;
   final String species;
   final String gender;
@@ -14,18 +14,18 @@ class Character {
     required this.charId,
     required this.species,
     required this.cityName,
-    required this.isAlive,
+    required this.status,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) {
     return Character(
       name: json['name'],
       imageUrl: json['image'],
-      gender: json['Male'],
+      gender: json['gender'],
       charId: json['id'],
       species: json['species'],
       cityName: json['location']['name'],
-      isAlive: json['status'],
+      status: json['status'],
     );
   }
 }
