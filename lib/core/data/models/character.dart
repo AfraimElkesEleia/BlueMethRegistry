@@ -6,6 +6,7 @@ class Character {
   final String gender;
   final String? imageUrl;
   final String cityName;
+  final List<dynamic> episodes;
 
   Character({
     required this.name,
@@ -15,6 +16,7 @@ class Character {
     required this.species,
     required this.cityName,
     required this.status,
+    required this.episodes,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class Character {
       species: json['species'],
       cityName: json['location']['name'],
       status: json['status'],
+      episodes: json['episode'],
     );
   }
 }

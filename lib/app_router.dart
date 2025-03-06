@@ -1,5 +1,6 @@
 import 'package:blue_meth_registery/constants/routes.dart';
 import 'package:blue_meth_registery/core/business_logic/characters_cubit.dart';
+import 'package:blue_meth_registery/core/data/models/character.dart';
 import 'package:blue_meth_registery/core/data/web_services/character_web_service.dart';
 import 'package:blue_meth_registery/core/presentation/screens/character_details_screen.dart';
 import 'package:blue_meth_registery/core/presentation/screens/home_screen.dart';
@@ -20,13 +21,20 @@ class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) =>
-            BlocProvider(
-              create: (BuildContext context) => CharactersCubit(charactersRepository),
-              child: Homescreen(),
-            ));
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (BuildContext context) =>
+                        CharactersCubit(charactersRepository),
+                child: Homescreen(),
+              ),
+        );
       case AppRoutes.characterDetailsScreenRoute:
-        return MaterialPageRoute(builder: (_) => CharacterDetailsScreen());
+        final Character character = settings.arguments as Character;
+        return MaterialPageRoute(
+          builder: (_) => CharacterDetailsScreen(character: character),
+        );
     }
   }
 }
