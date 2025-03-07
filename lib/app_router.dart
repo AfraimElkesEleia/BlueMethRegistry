@@ -26,7 +26,7 @@ class AppRouter {
               (_) => BlocProvider(
                 create:
                     (BuildContext context) =>
-                        CharactersCubit(charactersRepository),
+                       charactersCubit,
                 child: Homescreen(),
               ),
         );
